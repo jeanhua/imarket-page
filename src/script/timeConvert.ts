@@ -1,4 +1,4 @@
-export class TimeConvert{
+export class TimeConvert {
     public static Convert(dateString: string): string {
         const targetDate = new Date(dateString);
         const currentDate = new Date(); // 当前时间
@@ -17,10 +17,11 @@ export class TimeConvert{
             return `${days}天前`;
         } else if (hours > 0) {
             return `${hours}小时前`;
-        } else if (minutes > 0) {
-            return `${minutes}分钟前`;
         } else {
-            return `${seconds}秒前`;
+            if (minutes < 3) {
+                return "刚刚";
+            }
+            return `${minutes}分钟前`;
         }
     }
 }

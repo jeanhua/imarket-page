@@ -61,7 +61,7 @@ onMounted(() => {
     <div v-if="!notFound">
       <div v-if="post!=null">
         <Content :post="post" />
-        <comments />
+        <comments :postId="route.params.id.toString()" />
       </div>
       <div class="loading" v-else>
         Loading...
@@ -69,6 +69,8 @@ onMounted(() => {
     </div>
     <div class="loading" v-else>
       😥帖子丢失了，可能是作者删除了~
+      <br>
+      <a href="/">点击返回主页</a>
     </div>
   </div>
 </template>

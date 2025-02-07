@@ -11,6 +11,7 @@
         class="lightbox"
         @click.self="isPreviewOpen = false"
     >
+      <div class="closeBtn" @click="isPreviewOpen=false">关闭</div>
       <img :src="imageSrc" alt="预览图片" class="lightbox-image" />
     </div>
   </div>
@@ -54,5 +55,15 @@ const isPreviewOpen = ref(false);
   max-width: 90%;
   max-height: 90%;
   z-index: 1000;
+}
+.closeBtn{
+  position: fixed;
+  right: 10px;
+  top:50px;
+  z-index: 1001;
+  background-color: #999999;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  opacity: 50%;
 }
 </style>

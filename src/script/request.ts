@@ -2,6 +2,7 @@ import {SHA256} from 'crypto-js';
 
 export class Request {
     private static instance: Request;
+    private isLogin:boolean = false;
     // 网站登陆跳转地址
     private loginUrl = '/#/login';
 
@@ -23,10 +24,15 @@ export class Request {
         return this.instance;
     }
 
+    public getIsLoggedIn(): boolean {
+        return this.isLogin;
+    }
+
     private constructor() {
         this.authorization.token = localStorage.getItem('token') ?? '';
         this.authorization.refreshToken = localStorage.getItem('refreshToken') ?? '';
         this.authorization.expires = localStorage.getItem('expires') ?? '';
+        this.isLogin = !!this.authorization.token && !this.isTimeExceeded(this.authorization.expires);
     }
 
     private isTimeExceeded(targetTime: string): boolean {
@@ -35,19 +41,22 @@ export class Request {
         return currentTime > targetDate;
     }
 
-    private async check(): Promise<boolean> {
+    public async check(): Promise<boolean> {
         if (this.authorization.refreshToken === '' || this.authorization.expires === '') {
             // 跳转到登陆页面
             window.location.href = this.loginUrl;
+            this.isLogin = false;
             return false;
         }
         if (this.isTimeExceeded(this.authorization.expires)) {
             if (await this.refresh()) {
                 this.header.Authorization = `Bearer ${this.authorization.token}`;
+                this.isLogin = true;
                 return true;
             } else {
                 // 跳转到登陆页面
                 window.location.href = this.loginUrl;
+                this.isLogin = false;
                 return false;
             }
         }
@@ -76,19 +85,23 @@ export class Request {
             localStorage.setItem('refreshToken', this.authorization.refreshToken);
             localStorage.setItem('token', this.authorization.token);
             localStorage.setItem('expires', this.authorization.expires);
-            this.header.Authorization = `Bearer ${this.authorization.token}`;
             window.location.href = '/';
+            this.isLogin = true;
             return true;
         }
         return false;
     }
-    public async logout() {
+    public logout() {
         localStorage.removeItem('refreshToken');
+        localStorage.removeItem('token');
+        localStorage.removeItem('expires');
+        this.isLogin = false;
         this.authorization = {
             'token': '',
             'refreshToken': '',
             'expires': ''
         }
+        window.location.href = "/";
     }
 
     private async refresh() {
@@ -105,6 +118,7 @@ export class Request {
             localStorage.setItem('refreshToken', this.authorization.refreshToken);
             localStorage.setItem('token', this.authorization.token);
             localStorage.setItem('expires', this.authorization.expires);
+            this.isLogin = true;
             return true;
         }
         return false;

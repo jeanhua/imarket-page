@@ -14,5 +14,9 @@ const router = useRouter()
 .homeBtn{
   font-size: 1.5rem;
   font-weight: 600;
+  cursor: default;
+}
+.homeBtn:hover{
+  background-color: #999999;
 }
 </style>

@@ -5,6 +5,7 @@ import Modal from '../../../components/modal.vue';
 import shareIcon from '../../../assets/icon/postDetail/分享.svg'
 import imagePreview from "../../../components/imagePreview.vue";
 
+
 const modalRef = ref<InstanceType<typeof Modal> | null>(null);
 const openModal = () => {
   modalRef.value?.openModal();
@@ -126,7 +127,10 @@ const favorite = async () => {
     }
   }
 }
-
+const safeContent = (content:string)=>{
+  let escape = content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  return escape.replace(/\n/g,"<br>");
+}
 </script>
 
 <template>
@@ -139,7 +143,7 @@ const favorite = async () => {
     </div>
     <div class="body">
       <div class="post-title">{{ post?.title }}</div>
-      <div class="post-content" v-html="post?.content.replaceAll('\n','<br>')"></div>
+      <div class="post-content" v-html="safeContent(post?.content)"></div>
     </div>
     <div class="images">
       <image-preview v-for="image in post?.images" :image-src="image.url" />

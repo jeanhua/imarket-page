@@ -3,6 +3,7 @@ import { ref, onActivated, onDeactivated} from "vue";
 import { Request } from "../script/request.ts";
 import {useRouter} from "vue-router";
 import {TimeConvert} from "../script/timeConvert.ts";
+import scrollToTopicon from "../assets/icon/home/scrollToTop.svg"
 
 interface Post {
   id: number;
@@ -92,7 +93,7 @@ getPosts();
       <div class="post-title">{{ post.title }}</div>
       <div class="post-content">{{ post.content }}</div>
     </div>
-    <div class="scrollToTopBtn" v-if="!isAtTop"><img src="../assets/icon/home/scrollToTop.svg" alt="scroll" @click="scrollToTop" /></div>
+    <div class="scrollToTopBtn" v-show="!isAtTop"><img :src="scrollToTopicon" alt="scroll" @click="scrollToTop" /></div>
     <div v-if="loading" class="loading">加载中...</div>
     <div v-if="!hasMore" class="no-more">没有更多帖子了</div>
   </div>
@@ -212,11 +213,14 @@ getPosts();
   transition: all 0.3s ease;
   filter: none;
 }
+.scrollToTopBtn img:focus {
+  background-color: transparent;
+}
 
 .scrollToTopBtn img:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* 悬停时的阴影效果 */
-  transform: translateY(-5px); /* 悬停时的轻微位移 */
-  filter: brightness(1.1); /* 悬停时亮度增加 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  transform: translateY(-5px);
+  filter: brightness(1.1);
 }
 
 </style>
