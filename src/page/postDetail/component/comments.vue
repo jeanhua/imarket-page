@@ -99,7 +99,9 @@ const deleteComments = async (id:number)=>{
     alert("删除评论失败,请稍后再试");
   }
 }
-
+const refreshPage = ()=>{
+  window.location.reload();
+}
 onMounted(()=>{
   getComments()
 })
@@ -115,8 +117,8 @@ onMounted(()=>{
         <div class="avatar">
           <img :src="comment.userAvatar" alt="头像">
           <div class="nickName">
-            {{ comment.nickname }}
-            {{ TimeConvert.Convert(comment.createdAt) }}
+            <u>{{ comment.nickname }}</u>
+            <span style="margin-left: 1.5rem">{{TimeConvert.Convert(comment.createdAt)}}</span>
           </div>
         </div>
         <div class="content">
@@ -139,7 +141,7 @@ onMounted(()=>{
       <button @click="submitComment">提交评论</button>
     </div>
     <div v-else>
-      请<a @click="req.check()"> 登陆 </a>后评论
+      请<a @click="req.check();refreshPage();"> 登陆 </a>后评论
     </div>
   </div>
 </template>

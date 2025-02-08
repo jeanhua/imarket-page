@@ -1,34 +1,13 @@
 <script setup lang="ts">
 
-import {Request} from "../../../../script/request.ts";
-import {ref} from "vue";
+defineProps({
+  nickname:String,
+  username:String,
+  email:String,
+  status:String,
+  avatar:String
+})
 
-const Req = Request.getInstance();
-const avatar = ref('');
-const nickname = ref('');
-const username = ref('');
-const email = ref('');
-const status = ref('');
-
-const getInfo = async () => {
-  const response = await Req.Get<any>('/api/Account/Info');
-  if(response.success){
-    avatar.value = response.account.avatar;
-    nickname.value = response.account.nickname;
-    username.value = response.account.username;
-    email.value = response.account.email;
-    if(response.account.status === 0){
-      status.value = "未认证";
-    }
-    else if(response.account.status === 1){
-      status.value = '已认证';
-    }
-    else if(response.account.status === 2){
-      status.value = '被封禁';
-    }
-  }
-}
-getInfo();
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Request } from '../../../../script/request.ts';
-import { onMounted, ref } from 'vue';
-import {useRouter} from "vue-router";
+import {onActivated, ref} from 'vue';
+import {useRoute, useRouter} from "vue-router";
 
 let Req = Request.getInstance();
 const router = useRouter();
@@ -14,14 +14,17 @@ interface Category {
   name: string,
   description: string
 }
-
+const route = useRoute();
 const categories = ref<Category[]>([]);
 const getCategories = async () => {
   const res = await Req.Get<Categories>('/api/Post/Categories', false);
   categories.value = res.categories;
 }
-
-onMounted(getCategories);
+onActivated(()=>{
+  if(route.fullPath==='/post'){
+    getCategories();
+  }
+});
 </script>
 
 <template>

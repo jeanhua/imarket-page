@@ -64,6 +64,20 @@ const routes = [
         meta: {
             keepAlive: false,
         }
+    },
+    {
+        path: '/editInfo',
+        component: ()=>import("./page/userInfoEdit/userInfoEdit.vue"),
+        meta: {
+            keepAlive: false
+        }
+    },
+    {
+        path: '/userPost/:username',
+        component: ()=>import("./page/userPost/userPost.vue"),
+        meta: {
+            keepAlive: true
+        }
     }
 ];
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import {ref, onActivated} from 'vue';
 import {Request} from "../../../../script/request.ts";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 
 interface Post {
   id: number;
@@ -17,6 +17,7 @@ const likePosts = ref<Post[]>([]);
 const favoritePosts = ref<Post[]>([]);
 const Req = Request.getInstance();
 const router = useRouter();
+const route =useRoute();
 
 const fetchHotRanking = async () => {
   try {
@@ -36,8 +37,10 @@ const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleString();
 };
 
-onMounted(() => {
-  fetchHotRanking();
+onActivated(() => {
+  if(route.fullPath==='/search'){
+    fetchHotRanking();
+  }
 });
 </script>
 

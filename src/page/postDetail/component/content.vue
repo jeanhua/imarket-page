@@ -79,7 +79,7 @@ const share = () => {
     noticeText.value = '复制成功，快去分享吧...'
   }
   else{
-    noticeText.value = '您的浏览器不支持复制链接，请手动复制分享';
+    noticeText.value = `您的浏览器不支持复制链接，请手动复制分享\n${window.location.href}`;
   }
   openModal();
 }

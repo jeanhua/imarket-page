@@ -51,12 +51,16 @@ const register = async () => {
     openModal();
     return;
   }
-  const response = await Req.register(email.value, username.value, password.value);
-  if (response) {
+  const response = await Req.Post<any>("/api/Auth/Register",{
+    username: username.value,
+    password: Req.calculateSHA256(password.value),
+    email: email.value
+  },false)
+  if (response.success) {
     noticetext.value = "注册成功，请登录";
     formType.value = "login";
   } else {
-    noticetext.value = "注册失败，请重试";
+    noticetext.value = `注册失败，请重试：${JSON.stringify(response)}`;
   }
   openModal();
 };

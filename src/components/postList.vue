@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onActivated, onDeactivated} from "vue";
+import {ref, onActivated, onDeactivated, onMounted} from "vue";
 import { Request } from "../script/request.ts";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import {TimeConvert} from "../script/timeConvert.ts";
 import scrollToTopicon from "../assets/icon/home/scrollToTop.svg"
 
@@ -15,7 +15,7 @@ interface Post {
   likeNums: number;
   createdAt: string;
 }
-
+let scrollPosition = new Map<string,number>();
 const scrollToTop = ()=>{
   window.scrollTo({
     top: 0,
@@ -29,6 +29,7 @@ interface Posts {
 }
 
 const router = useRouter();
+const route = useRoute();
 const index = ref(1);
 const req = Request.getInstance();
 const posts = ref<Post[]>([]);
@@ -49,6 +50,7 @@ const getPosts = async () => {
   }
   loading.value = false;
 };
+
 let active = false;
 const handleScroll = () => {
   if(!active)return;
@@ -60,14 +62,25 @@ const handleScroll = () => {
 };
 onActivated(() => {
   window.addEventListener('scroll', handleScroll);
+  let position = scrollPosition.get(route.fullPath)??0;
+  window.scrollTo({
+    top: position,
+    behavior:"smooth"
+  })
+  if(route.fullPath==='/post' || route.fullPath.match(/categories/) || route.fullPath.match(/search\//) || route.fullPath.match(/userPost\//)){
+    getPosts();
+  }
+  else {
+    console.log("postList排除");
+  }
   active = true;
 });
 
 onDeactivated(() => {
   window.removeEventListener('scroll', handleScroll);
+  scrollPosition.set(route.fullPath,document.documentElement.scrollTop);
   active = false;
 });
-getPosts();
 </script>
 
 <template>
@@ -93,7 +106,7 @@ getPosts();
       <div class="post-title">{{ post.title }}</div>
       <div class="post-content">{{ post.content }}</div>
     </div>
-    <div class="scrollToTopBtn" v-show="!isAtTop"><img :src="scrollToTopicon" alt="scroll" @click="scrollToTop" /></div>
+    <div class="scrollToTopBtn" v-show="!isAtTop"><img :src="scrollToTopicon" alt="scroll" @click="scrollToTop()" /></div>
     <div v-if="loading" class="loading">加载中...</div>
     <div v-if="!hasMore" class="no-more">没有更多帖子了</div>
   </div>
