@@ -48,8 +48,20 @@ const getPost = async (id: string) => {
 onMounted(() => {
   if (route.params.id) {
     getPost(route.params.id.toString());
+    GetUserName();
   }
 });
+
+const isLogin = ref(req.getIsLoggedIn());
+const MyUsername = ref("");
+const GetUserName = async ()=>{
+  if(isLogin.value){
+    let response = await req.Get<any>("/api/Account/Info",false);
+    if(response.success){
+      MyUsername.value = response?.account?.username;
+    }
+  }
+}
 </script>
 
 <template>
@@ -60,8 +72,8 @@ onMounted(() => {
     </div>
     <div v-if="!notFound">
       <div v-if="post!=null">
-        <Content :post="post" />
-        <comments :postId="route.params.id.toString()" />
+        <Content :post="post" :username="MyUsername" />
+        <comments :postId="route.params.id.toString()" :isLogin="isLogin" :MyUsername="MyUsername" />
       </div>
       <div class="loading" v-else>
         Loading...

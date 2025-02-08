@@ -2,12 +2,13 @@
 import {Request} from "../../../script/request.ts";
 import {onMounted, ref} from "vue";
 import {TimeConvert} from "../../../script/timeConvert.ts";
+import {useRouter} from "vue-router";
 
-const props = defineProps({postId:String})
+const props = defineProps({postId:String,isLogin:Boolean,MyUsername:String})
+const router = useRouter();
 const req = Request.getInstance();
-const isLogin = ref(req.getIsLoggedIn());
+
 const comments = ref<_Comment[]>()
-const MyUsername = ref<string|null>(null);
 
 interface _Comments {
   "success": boolean,
@@ -42,16 +43,8 @@ const getComments = async () => {
   } finally {
     isLoading.value = false;
   }
-  GetUserName();
 };
-const GetUserName = async ()=>{
-  if(isLogin){
-    let response = await req.Get<any>("/api/Account/Info",false);
-    if(response.success){
-      MyUsername.value = response?.account?.username;
-    }
-  }
-}
+
 // 评论点赞
 const likeComment = async (commentId: number) => {
   try {
@@ -115,7 +108,7 @@ onMounted(()=>{
     <div v-else>
       <div class="commentItem" v-for="comment in comments" :key="comment.id">
         <div class="avatar">
-          <img :src="comment.userAvatar" alt="头像">
+          <img :src="comment.userAvatar" alt="头像" @click="router.push(`/userPost/${comment.username}`)" />
           <div class="nickName">
             <u>{{ comment.nickname }}</u>
             <span style="margin-left: 1.5rem">{{TimeConvert.Convert(comment.createdAt)}}</span>

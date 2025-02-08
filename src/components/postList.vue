@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onActivated, onDeactivated, onMounted} from "vue";
+import {ref, onActivated, onDeactivated} from "vue";
 import { Request } from "../script/request.ts";
 import {useRoute, useRouter} from "vue-router";
 import {TimeConvert} from "../script/timeConvert.ts";
@@ -52,6 +52,7 @@ const getPosts = async () => {
 };
 
 let active = false;
+
 const handleScroll = () => {
   if(!active)return;
   const bottomOfWindow = document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight - 100;
@@ -60,6 +61,7 @@ const handleScroll = () => {
     getPosts();
   }
 };
+
 onActivated(() => {
   window.addEventListener('scroll', handleScroll);
   let position = scrollPosition.get(route.fullPath)??0;
@@ -67,11 +69,9 @@ onActivated(() => {
     top: position,
     behavior:"smooth"
   })
-  if(route.fullPath==='/post' || route.fullPath.match(/categories/) || route.fullPath.match(/search\//) || route.fullPath.match(/userPost\//)){
+  if(route.fullPath==='/post' || route.fullPath.match(/categories/) || route.fullPath.match(/search\//)
+      || route.fullPath.match(/userPost\//)){
     getPosts();
-  }
-  else {
-    console.log("postList排除");
   }
   active = true;
 });

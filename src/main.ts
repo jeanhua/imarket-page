@@ -78,6 +78,13 @@ const routes = [
         meta: {
             keepAlive: true
         }
+    },
+    {
+        path: '/favorite',
+        component: ()=>import("./page/favoritePost/favoritePost.vue"),
+        meta: {
+            keepAlive: true
+        }
     }
 ];
 

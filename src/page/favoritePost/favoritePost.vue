@@ -1,35 +1,35 @@
 <script setup lang="ts">
-
-import {useRoute} from "vue-router";
-import PostList from "../../components/postList.vue";
 import HomeBtn from "../../components/homeBtn.vue";
-
-const route = useRoute();
-const username = route.params.username;
-const Url = `/api/User/Posts?username=${username}&`;
-
+import Favorite from "./component/favorite.vue";
 
 </script>
 
 <template>
- <div class="userPost">
-   <div class="head"><home-btn class="homeBtn" />{{username}}的帖子</div>
-   <post-list :Url="Url"></post-list>
- </div>
+  <div class="userPost">
+    <!-- 头部 -->
+    <div class="head">
+      <home-btn class="homeBtn" />
+      <span>我的收藏 ⭐</span>
+    </div>
+
+    <!-- 收藏列表 -->
+    <favorite />
+  </div>
 </template>
 
 <style scoped>
-.userPost{
-  position: absolute;
+.userPost {
+  position: relative;
   left: 0;
   top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  overflow-y: scroll;
 }
-.head{
+
+.head {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -39,9 +39,15 @@ const Url = `/api/User/Posts?username=${username}&`;
   border-radius: 0 0 20px 20px;
   background-color: white;
   font-size: 1.5rem;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
-.homeBtn{
+
+.homeBtn {
   position: absolute;
   left: 20px;
 }
+
+
 </style>

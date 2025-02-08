@@ -5,31 +5,36 @@ import Modal from '../../../components/modal.vue';
 import shareIcon from '../../../assets/icon/postDetail/分享.svg'
 import imagePreview from "../../../components/imagePreview.vue";
 
+import likeImg from '../../../assets/icon/postDetail/点赞.svg'
+import likeImg1 from '../../../assets/icon/postDetail/点赞1.svg'
+import favoriteImg from '../../../assets/icon/postDetail/收藏.svg'
+import favoriteImg1 from '../../../assets/icon/postDetail/收藏1.svg'
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const modalRef = ref<InstanceType<typeof Modal> | null>(null);
 const openModal = () => {
   modalRef.value?.openModal();
 };
 
 const props = defineProps({
-  post: {
-    type: Object,
-    default: () => ({
-      title: '',
-      content: '',
-      images: [],
-      status: 0,
-      categoryID: 0,
-      likeNums: 0,
-      favoriteNms: 0,
-      isLiked: false,
-      isFavorite: false,
-      createdAt: '',
-      username: '',
-      nickname: '',
-      avatar: '',
-    }),
-  },
+  post: Object({
+    id:String,
+    title: String,
+    content: String,
+    images: [],
+    status: Number,
+    categoryID: Number,
+    likeNums: Number,
+    favoriteNms: Number,
+    isLiked: Boolean,
+    isFavorite: Boolean,
+    createdAt: String,
+    username: String,
+    nickname: String,
+    avatar: String,
+  }),
+  username:String
 });
 
 interface Category{
@@ -42,11 +47,6 @@ interface Category{
 }
 
 // 点赞收藏图片
-import likeImg from '../../../assets/icon/postDetail/点赞.svg'
-import likeImg1 from '../../../assets/icon/postDetail/点赞1.svg'
-import favoriteImg from '../../../assets/icon/postDetail/收藏.svg'
-import favoriteImg1 from '../../../assets/icon/postDetail/收藏1.svg'
-
 const likeImgSrc = ref(likeImg);
 const favoriteImgSrc = ref(favoriteImg);
 const likeNums = ref(props.post.likeNums);
@@ -131,13 +131,27 @@ const safeContent = (content:string)=>{
   let escape = content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   return escape.replace(/\n/g,"<br>");
 }
+
+const deletePost = async (postId:number)=>{
+  if(!window.confirm("确定删除此贴？")){
+    return;
+  }
+  let response = await Req.Get<any>(`/api/Post/Delete?postId=${postId}`);
+  if(response.success){
+    alert("删除成功！");
+    window.history.back();
+  }
+  else {
+    alert(`删除失败！${JSON.stringify(response)}`);
+  }
+}
 </script>
 
 <template>
   <div class="content">
     <div class="head">
       <div class="post-avatar">
-        <img :src="post?.avatar" alt="用户头像"/>
+        <img :src="post?.avatar" alt="用户头像" @click="router.push(`/userPost/${post?.username}`)" />
       </div>
       <div class="post-user">{{ post?.nickname }}</div>
     </div>
@@ -164,6 +178,7 @@ const safeContent = (content:string)=>{
       <div class="share" @click="share()">
         <img :src="shareIcon" alt="分享" width="30px" />
       </div>
+      <button class="delete" v-if="username===post?.username" @click="deletePost(post?.id)">删除帖子</button>
     </div>
     <Modal ref="modalRef">
       <h2>提示</h2>
@@ -262,6 +277,7 @@ const safeContent = (content:string)=>{
 .share {
   display: flex;
   align-items: center;
+  margin-right: 30px;
 }
 
 .shareBar {
@@ -271,5 +287,8 @@ const safeContent = (content:string)=>{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.delete{
+  padding: 5px;
 }
 </style>
