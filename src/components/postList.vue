@@ -70,7 +70,7 @@ onActivated(() => {
     behavior:"smooth"
   })
   if(route.fullPath==='/post' || route.fullPath.match(/categories/) || route.fullPath.match(/search\//)
-      || route.fullPath.match(/userPost\//)){
+      || route.fullPath.match(/userPost\//) || route.fullPath.match(/favorite/)){
     getPosts();
   }
   active = true;

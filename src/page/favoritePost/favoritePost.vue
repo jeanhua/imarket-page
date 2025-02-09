@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HomeBtn from "../../components/homeBtn.vue";
-import Favorite from "./component/favorite.vue";
-
+import PostList from "../../components/postList.vue";
+const url = "/api/Post/GetFavorites?";
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import Favorite from "./component/favorite.vue";
     </div>
 
     <!-- 收藏列表 -->
-    <favorite />
+    <post-list :Url="url"></post-list>
   </div>
 </template>
 

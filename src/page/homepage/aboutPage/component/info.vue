@@ -63,15 +63,14 @@ defineProps({
   justify-content: center;
 }
 .avatar{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 20px;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
 }
 .avatar img{
-  width: 100%;
-  height: 100%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 .name{
   width: 100%;

@@ -50,8 +50,9 @@ onActivated(() => {
     <section class="section">
       <h2 class="section-title">本周最多点赞的帖子</h2>
       <div class="post-list">
-        <div v-for="post in likePosts" :key="post.id" class="post-card" @click="router.push('/post/'+post.id);">
-          <h3 class="post-title">{{ post.title }}</h3>
+        <div v-for="(post,index) in likePosts" :key="post.id" class="post-card" @click="router.push('/post/'+post.id);">
+          <div class="score sl">{{index+1}}</div>
+          <h3 class="post-title">{{ post.title.slice(0,8) }}...</h3>
           <p class="post-content">{{ post.content }}</p>
           <div class="post-meta">
             <span class="post-likes">👍 {{ post.likeCount }}</span>
@@ -65,8 +66,9 @@ onActivated(() => {
     <section class="section">
       <h2 class="section-title">本周最多收藏的帖子</h2>
       <div class="post-list">
-        <div v-for="post in favoritePosts" :key="post.id" class="post-card" @click="router.push('/post/'+post.id);">
-          <h3 class="post-title">{{ post.title }}</h3>
+        <div v-for="(post,index) in favoritePosts" :key="post.id" class="post-card" @click="router.push('/post/'+post.id);">
+          <div class="score sf">{{index+1}}</div>
+          <h3 class="post-title">{{ post.title.slice(0,8) }}...</h3>
           <p class="post-content">{{ post.content }}</p>
           <div class="post-meta">
             <span class="post-favorites">❤️ {{ post.favoriteCount }}</span>
@@ -108,7 +110,7 @@ onActivated(() => {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 5px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -142,5 +144,21 @@ onActivated(() => {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.score{
+  position: absolute;
+  font-size: 2rem;
+  width: 3rem;
+  font-family: "Bauhaus 93",serif;
+  border-radius: 50%;
+  opacity: 90%;
+}
+.sl{
+  color: cornsilk;
+  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+}
+.sf{
+  color: brown;
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
 }
 </style>
