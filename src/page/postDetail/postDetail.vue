@@ -53,6 +53,10 @@ onMounted(() => {
 });
 
 const isLogin = ref(req.getIsLoggedIn());
+const refresh = async ()=>{
+  await req.check();
+  isLogin.value = req.getIsLoggedIn();
+}
 const MyUsername = ref("");
 const GetUserName = async ()=>{
   if(isLogin.value){
@@ -73,7 +77,7 @@ const GetUserName = async ()=>{
     <div v-if="!notFound">
       <div v-if="post!=null">
         <Content :post="post" :username="MyUsername" />
-        <comments :postId="route.params.id.toString()" :isLogin="isLogin" :MyUsername="MyUsername" />
+        <comments :postId="route.params.id.toString()" :isLogin="isLogin" :MyUsername="MyUsername" :refresh="refresh" />
       </div>
       <div class="loading" v-else>
         Loading...

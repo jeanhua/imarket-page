@@ -15,10 +15,11 @@ defineProps({username:String})
 
 <template>
  <div class="menu">
+   <div class="items" @click="router.push('/create')">✍️发表帖子</div>
    <div class="items" @click="router.push('/editInfo')">👤我的资料</div>
    <div class="items" @click="router.push(`/userPost/${username}`)">✉️我的帖子</div>
    <div class="items" @click="router.push('/favorite')">⭐我的收藏</div>
-   <div class="items">🎯我的消息</div>
+   <div class="items" @click="router.push('/message')">🎯我的消息</div>
    <div class="items redtext" @click="logout();">退出登陆</div>
  </div>
 </template>

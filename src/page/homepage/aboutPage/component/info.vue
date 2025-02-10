@@ -1,13 +1,17 @@
 <script setup lang="ts">
-
+import {ref} from "vue";
+import Modal from "../../../../components/modal.vue";
 defineProps({
   nickname:String,
   username:String,
   email:String,
   status:String,
   avatar:String
-})
-
+});
+const modalRef = ref<InstanceType<typeof Modal> | null>(null);
+const openModal = () => {
+  modalRef.value?.openModal();
+};
 </script>
 
 <template>
@@ -26,11 +30,15 @@ defineProps({
         <div class="email">
           {{email}}
         </div>
-        <div class="status">
-          {{status}}
+        <div class="status" :style="status==='已认证'?'color:green;':'color:red;'">
+          {{status}}<div class="help" @click="openModal()">❓</div>
         </div>
       </div>
     </div>
+    <Modal ref="modalRef">
+      <h2>提示</h2>
+      <p>认证用户可以进行发帖、评论、点赞、收藏、上传图片等功能，而未认证用户啥也干不了，只能干看😘</p>
+    </Modal>
   </div>
 </template>
 
@@ -95,6 +103,8 @@ defineProps({
 }
 .status{
   font-size: 16px;
-  color: gray;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 </style>

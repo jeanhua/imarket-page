@@ -12,6 +12,7 @@ import favoriteImg1 from '../../../assets/icon/postDetail/收藏1.svg'
 import {useRouter} from "vue-router";
 
 const router = useRouter();
+
 const modalRef = ref<InstanceType<typeof Modal> | null>(null);
 const openModal = () => {
   modalRef.value?.openModal();
@@ -198,6 +199,12 @@ const deletePost = async (postId:number)=>{
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 800px){
+  .content{
+    min-width: 800px;
+  }
 }
 
 .head {

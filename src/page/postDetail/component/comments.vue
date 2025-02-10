@@ -4,7 +4,7 @@ import {onMounted, ref} from "vue";
 import {TimeConvert} from "../../../script/timeConvert.ts";
 import {useRouter} from "vue-router";
 
-const props = defineProps({postId:String,isLogin:Boolean,MyUsername:String})
+const props = defineProps({postId:String,isLogin:Boolean,MyUsername:String,refresh:{type:Function,required:true}})
 const router = useRouter();
 const req = Request.getInstance();
 
@@ -92,9 +92,7 @@ const deleteComments = async (id:number)=>{
     alert("删除评论失败,请稍后再试");
   }
 }
-const refreshPage = ()=>{
-  window.location.reload();
-}
+
 onMounted(()=>{
   getComments()
 })
@@ -134,7 +132,7 @@ onMounted(()=>{
       <button @click="submitComment">提交评论</button>
     </div>
     <div v-else>
-      请<a @click="req.check();refreshPage();"> 登陆 </a>后评论
+      请<a @click="props.refresh()"> 登陆 </a>后评论
     </div>
   </div>
 </template>

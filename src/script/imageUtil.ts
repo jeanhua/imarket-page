@@ -11,8 +11,8 @@ export class ImageUtil {
                     const originalHeight = img.height;
 
                     // 设置压缩比例
-                    const maxWidth = 1024;
-                    const maxHeight = 1024;
+                    const maxWidth = 2048;
+                    const maxHeight = 2048;
 
                     // 计算压缩后的宽高
                     let width = originalWidth;

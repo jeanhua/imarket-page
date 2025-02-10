@@ -124,7 +124,7 @@ export class Request {
         return false;
     }
 
-    public async Get<T>(url: string, check: boolean = true,notFoundRedirect:()=>void=()=>{}): Promise<T> {
+    public async Get<T=any>(url: string, check: boolean = true,notFoundRedirect:()=>void=()=>{}): Promise<T> {
         if (check) {
             if(!(await this.check())){
                 window.location.href = this.loginUrl;
@@ -149,7 +149,7 @@ export class Request {
         return await response.json() as T;
     }
 
-    public async Post<T>(url: string, body: any, check: boolean = true,notFoundRedirect:()=>void=()=>{}): Promise<T> {
+    public async Post<T=any>(url: string, body: any, check: boolean = true,notFoundRedirect:()=>void=()=>{}): Promise<T> {
         if (check) {
             if(!(await this.check())){
                 window.location.href = this.loginUrl;

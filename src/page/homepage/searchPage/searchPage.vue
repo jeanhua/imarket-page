@@ -43,12 +43,21 @@ const router = useRouter();
   margin-top: 100px;
 }
 input{
-  width: 300px;
   height: 40px;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding-left: 10px;
   margin-right: 10px;
+}
+@media screen and (max-width: 800px){
+  input{
+    width: 200px;
+  }
+}
+@media screen and (min-width: 800px){
+  input{
+    width: 500px;
+  }
 }
 button{
   width: 80px;

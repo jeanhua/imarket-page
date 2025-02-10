@@ -85,6 +85,20 @@ const routes = [
         meta: {
             keepAlive: true
         }
+    },
+    {
+        path: '/message',
+        component: ()=>import("./page/messagePage/messagePage.vue"),
+        meta: {
+            keepAlive: false
+        }
+    },
+    {
+        path: '/create',
+        component: ()=>import("./page/createPostPage/createPostPage.vue"),
+        meta: {
+            keepAlive: false
+        }
     }
 ];
 

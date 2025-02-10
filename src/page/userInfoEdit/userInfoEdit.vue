@@ -106,8 +106,8 @@ onMounted(() => {
         <div class="return" style="margin-right: 10px;cursor: default;" @click="router.push('/about')">🔙</div>编辑信息
       </div>
       <div class="profile-info">
-        <div class="avatar">
-          <img :src="avatar" alt="avatar" @click="openMenu=true" />
+        <div class="avatar" @click="openMenu = true">
+          <img :src="avatar" alt="avatar" @click.stop="openMenu=true" />
         </div>
         <div class="user-details">
           <div class="username">用户名：{{ username }}</div>
@@ -231,14 +231,14 @@ button {
   padding: 12px 24px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 button:hover {
-  background-color: #0056b3;
+  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
 }
 button:active {
   background-color: #003c82;
