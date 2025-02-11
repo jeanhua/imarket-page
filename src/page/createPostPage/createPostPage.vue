@@ -79,7 +79,8 @@ const createPost = async () => {
   const response = await Req.Post("/api/Post/Create", postRef.value);
   if (response.success) {
     alert("发帖成功！");
-    router.push('/');
+    await router.push('/');
+    window.location.reload();
   } else {
     alert(`发帖失败！${JSON.stringify(response)}`);
   }

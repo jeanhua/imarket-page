@@ -99,12 +99,10 @@ const deleteSelectedMessages = async () => {
     alert("请选择要删除的消息！");
     return;
   }
-  if(!window.confirm(`确定删除选中的 ${selectedMessages.value.length} 条消息吗？`))return;
-  for (const id of selectedMessages.value) {
-    let response = await Req.Get(`/api/Message/Delete?messageId=${id}`);
-    if(!response.success){
-      alert(`消息${id}删除失败！`);
-    }
+  if(!window.confirm(`确定删除选中的 ${selectedMessages.value.length} 条消息吗？注意：删除对双方都有效。`))return;
+  let response = await Req.Post(`/api/Message/Delete`,selectedMessages.value);
+  if(!response.success){
+    alert(`消息${selectedMessages.value}删除失败！`);
   }
   window.location.reload();
 };
@@ -131,14 +129,14 @@ onBeforeUnmount(() => {
     <div class="contentList">
       <div class="head-bar">
         <div :class="{ active: show_received }" @click="show_received=true;hasMore=true;">
-          收件箱 ({{ message_received.length }})
+          收件箱
         </div>
         <div :class="{ active: !show_received }" @click="show_received=false;changeMenu();">
-          发件箱 ({{ message_send.length }})
+          发件箱
         </div>
       </div>
 
-      <!-- 添加全选框 -->
+      <!-- 全选框 -->
       <div class="select-all" v-if="selectEnable">
         <input type="checkbox" v-model="selectAll" @change="toggleSelectAll" /> 全选
         <button @click="deleteSelectedMessages">删除选中消息</button>

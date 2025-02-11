@@ -4,7 +4,7 @@
 
 <template>
   <div class="foot">
-    <a href="#"><u>关于集市</u></a>
+    <a href="https://www.blog.jeanhua.cn/2025/02/11/0fda2382b044/"><u>关于集市</u></a>
   </div>
 </template>
 

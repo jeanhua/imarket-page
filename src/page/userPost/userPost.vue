@@ -5,6 +5,7 @@ import PostList from "../../components/postList.vue";
 import HomeBtn from "../../components/homeBtn.vue";
 import {ref} from "vue";
 import {Request} from "../../script/request.ts";
+import messageModal from "../../components/messageModal.vue";
 
 const route = useRoute();
 const username = route.params.username;
@@ -20,6 +21,8 @@ const getInfo= async ()=>{
   }
 }
 getInfo();
+
+const msgModalRef = ref<InstanceType<typeof messageModal>|null>();
 </script>
 
 <template>
@@ -27,9 +30,14 @@ getInfo();
    <div class="head">
      <home-btn class="homeBtn" />
      <div class="info"><img :src="avatar" alt="avatar" /></div>
-     {{nickname}}的帖子
+     <div class="meta">
+       <div class="nickname">{{nickname}}</div>
+       <div class="username">@{{username}}</div>
+     </div>
+     <button @click="msgModalRef?.openModal()">✉️私信</button>
    </div>
    <post-list :Url="Url"></post-list>
+   <message-modal ref="msgModalRef" :username="username.toString()" :nickname="nickname"></message-modal>
  </div>
 </template>
 
@@ -53,7 +61,6 @@ getInfo();
   width: 100vw;
   border-radius: 0 0 20px 20px;
   background-color: white;
-  font-size: 1.5rem;
 }
 .homeBtn{
   position: absolute;
@@ -64,6 +71,17 @@ getInfo();
   height: 50px;
   border-radius: 50%;
   border: #999999 solid 1px;
+  margin: 10px;
+}
+.nickname{
+  font-size: 1.3rem;
+}
+.username{
+  font-size: 0.7rem;
+  color: #999999;
+}
+.head button{
+  padding: 2px;
   margin: 10px;
 }
 </style>
