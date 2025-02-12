@@ -298,4 +298,35 @@ const deletePost = async (postId:number)=>{
 .delete{
   padding: 5px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .content {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .post-title {
+    color: #ffffff;
+  }
+  .post-content {
+    color: #cccccc;
+  }
+  .post-time,
+  .post-category {
+    color: #aaaaaa;
+  }
+  .like img,
+  .favorite img,
+  .share img {
+    filter: invert(1);
+  }
+  .delete {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+  .delete:hover {
+    background-color: #444;
+  }
+}
 </style>

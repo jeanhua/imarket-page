@@ -412,4 +412,69 @@ onBeforeUnmount(() => {
   font-weight: bold;
   transition: background 0.3s ease;
 }
+
+@media (prefers-color-scheme: dark) {
+  .messagePage {
+    background: #121212;
+  }
+  .header {
+    background-image: linear-gradient(120deg, #4b6cb7 0%, #182848 100%);
+  }
+  .header h1 {
+    color: #ffffff;
+  }
+  .head-bar {
+    background: #1e1e1e;
+  }
+  .head-bar div {
+    background: #2a2a2a;
+    color: #ccc;
+  }
+  .head-bar div.active {
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  }
+  .message-item {
+    background: #1e1e1e;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.05);
+  }
+  .message-item:hover {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  }
+  .receive .avatar {
+    background: #1b5e20;
+  }
+  .send .avatar {
+    background: #1565c0;
+  }
+  .nickname {
+    color: #ffffff;
+  }
+  .relation {
+    color: #cccccc;
+  }
+  .time {
+    color: #aaaaaa;
+  }
+  .message-text {
+    background: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #333333;
+  }
+  .loading {
+    color: #cccccc;
+  }
+  .scrollToTopBtn img {
+    background-color: #1e1e1e;
+    filter: brightness(0.8);
+  }
+  .scrollToTopBtn img:hover {
+    filter: brightness(1.2);
+  }
+  .select-all button {
+    background: #ff5722;
+  }
+  .selectEnableBtn button {
+    background: #4CAF50;
+  }
+}
 </style>

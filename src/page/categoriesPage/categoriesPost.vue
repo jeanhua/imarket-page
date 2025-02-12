@@ -53,7 +53,6 @@ onMounted(
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-  font-family: "custom-font",serif;
 }
 .description{
   font-size: 15px;
@@ -70,4 +69,27 @@ onMounted(
   flex-direction: column;
   justify-content: center;
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .head {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .title {
+    color: #e0e0e0;
+  }
+
+  .description {
+    color: #aaa;
+  }
+
+  .homeBtn {
+    color: #e0e0e0;
+    background-color: #333;
+    border: 1px solid #555;
+  }
+}
+
 </style>

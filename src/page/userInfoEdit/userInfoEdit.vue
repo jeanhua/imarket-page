@@ -271,4 +271,56 @@ button:active {
 .menu button {
   margin: 10px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .body {
+    background-color: #121212;
+  }
+  .profile-container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  }
+  .header {
+    color: #ffffff;
+  }
+  .user-details .username {
+    color: #ffffff;
+  }
+  label {
+    color: #aaaaaa;
+  }
+  input {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #444;
+  }
+  input:focus {
+    border-color: #bb86fc;
+  }
+  button {
+    background-image: linear-gradient(120deg, #4b6cb7 0%, #182848 100%);
+  }
+  button:hover {
+    background-image: linear-gradient(120deg, #6a82fb 0%, #fc5c7d 100%);
+  }
+  button:active {
+    background-color: #003c82;
+  }
+  .menuBk {
+    background-color: #121212;
+  }
+  .menu {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  .menu button {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+  .menu button:hover {
+    background-color: #444;
+  }
+}
 </style>

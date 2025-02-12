@@ -11,19 +11,19 @@ const setIndex = (newIndex: number) => {
 <template>
   <div class="navigation">
     <router-link to="/post" active-class="active" @click="setIndex(0)">
-      <div id="icon">
+      <div class="icon">
         <img src="../../../assets/icon/home/帖子.svg" alt="帖子" width="30px" height="30px" />
         帖子
       </div>
     </router-link>
     <router-link to="/search" active-class="active" @click="setIndex(1)">
-      <div id="icon">
+      <div class="icon">
         <img src="../../../assets/icon/home/搜索.svg" alt="搜索" width="30px" height="30px" />
         搜索
       </div>
     </router-link>
     <router-link to="/about" active-class="active" @click="setIndex(2)">
-      <div id="icon">
+      <div class="icon">
         <img src="../../../assets/icon/home/我的.svg" alt="我的" width="30px" height="30px" />
         我的
       </div>
@@ -32,12 +32,11 @@ const setIndex = (newIndex: number) => {
 </template>
 
 <style scoped>
-#icon {
+.icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "custom-font", serif;
   color: #1a1a1a;
 }
 
@@ -63,5 +62,14 @@ const setIndex = (newIndex: number) => {
   background-color: rgba(0, 123, 255, 0.1);
   border-radius: 10px;
   padding: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .navigation{
+    background-color: #242424;
+  }
+  .icon{
+    color: #999999;
+  }
 }
 </style>

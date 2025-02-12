@@ -236,4 +236,29 @@ onDeactivated(() => {
   filter: brightness(1.1);
 }
 
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .post-body{
+    background-color: black;
+    border-radius: 10px;
+  }
+  .post{
+    background-color: #242424;
+  }
+  .post::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1rem; /* 遮罩高度 */
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0), rgba(10, 10, 10, 1));
+    pointer-events: none; /* 防止遮罩阻挡点击事件 */
+  }
+  .scrollToTopBtn img{
+    background-color: #242424;
+    box-shadow: 0 2px 6px rgba(240, 240, 240, 0.5);
+  }
+}
+
 </style>

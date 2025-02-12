@@ -107,4 +107,39 @@ const openModal = () => {
   flex-direction: row;
   gap: 1rem;
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .info {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .info:hover {
+    box-shadow: 0 0 20px #424242;
+  }
+
+  .avatar img {
+    border: 2px solid #e0e0e0;
+  }
+
+  .nickname {
+    color: #c0c0c0;
+  }
+
+  .username,
+  .email {
+    color: #aaa;
+  }
+
+  .status {
+    color: #c0c0c0;
+  }
+
+  .status .help {
+    color: #808080;
+  }
+}
+
 </style>

@@ -14,4 +14,9 @@
   bottom: 120px;
   font-size: 0.9rem;
 }
+@media (prefers-color-scheme: dark) {
+  .foot a{
+    color: white;
+  }
+}
 </style>

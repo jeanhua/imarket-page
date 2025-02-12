@@ -77,8 +77,15 @@ button:focus-visible {
   }
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 800px) and (prefers-color-scheme: light){
   body{
     background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: black;
+    background-image: None;
   }
 }

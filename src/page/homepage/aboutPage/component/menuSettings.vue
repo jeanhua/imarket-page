@@ -43,7 +43,6 @@ defineProps({username:String})
   font-size: 1.3rem;
   display: flex;
   align-items: center;
-  font-family: "custom-font", serif;
   padding-left: 10px;
   position: relative;
 }
@@ -58,4 +57,32 @@ defineProps({username:String})
 .redtext{
   color: red;
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .menu {
+    background-color: #2c2c2c;
+    border-radius: 15px;
+  }
+
+  .items {
+    background-color: #333;
+    box-shadow: none;
+    color: #e0e0e0;
+    border-radius: 10px;
+  }
+
+  .items:hover {
+    background-color: #424242;
+  }
+
+  .items::after {
+    color: #666;
+  }
+
+  .redtext {
+    color: #ff6b6b;
+  }
+}
+
 </style>

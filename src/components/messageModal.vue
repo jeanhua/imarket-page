@@ -92,4 +92,44 @@ textarea{
 button{
   background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .message-modal {
+    background-color: rgba(31, 31, 31, 0.75);
+  }
+
+  .modal {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+
+  textarea {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  .head {
+    color: #c0c0c0;
+  }
+
+  .meta {
+    color: #aaa;
+  }
+
+  .nickname {
+    color: #c0c0c0;
+  }
+
+  .username {
+    color: #808080;
+  }
+
+  button {
+    background-image: linear-gradient(45deg, #8c7ae6 0%, #7f7fd5 99%, #7f7fd5 100%);
+    color: #e0e0e0;
+  }
+}
+
 </style>

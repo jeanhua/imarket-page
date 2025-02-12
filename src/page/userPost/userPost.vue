@@ -84,4 +84,31 @@ const msgModalRef = ref<InstanceType<typeof messageModal>|null>();
   padding: 2px;
   margin: 10px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .userPost {
+    background-color: #121212;
+  }
+  .head {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  .info img {
+    border-color: #444;
+  }
+  .nickname {
+    color: #ffffff;
+  }
+  .username {
+    color: #aaaaaa;
+  }
+  .head button {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+  .head button:hover {
+    background-color: #444;
+  }
+}
 </style>

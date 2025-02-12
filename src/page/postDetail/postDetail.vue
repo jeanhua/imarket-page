@@ -119,12 +119,28 @@ const GetUserName = async ()=>{
   left: 50%;
   transform: translate(-50%,-50%);
   top: 40vh;
-  font-family: "custom-font", serif;
   font-size: 1.3rem;
 }
 .homeBtn{
   position: absolute;
   left: 20px;
   top: 19px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .detail {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  .head {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  .loading {
+    color: #cccccc;
+  }
+  a {
+    color: #bb86fc;
+  }
 }
 </style>

@@ -330,31 +330,84 @@ const safeContent = (content: string): string => {
   padding: 10px;
 }
 
-/* 整体容器样式 */
+
 .quote-container {
-  border-left: 4px solid #007bff; /* 左侧蓝色竖线 */
-  padding-left: 16px; /* 左侧内边距 */
-  margin: 16px 0; /* 上下外边距 */
+  border-left: 4px solid #007bff;
+  padding-left: 16px;
+  margin: 16px 0;
 }
 
-/* 引用部分样式 */
+
 .quote {
-  font-style: italic; /* 斜体 */
-  color: #555; /* 灰色文字 */
-  margin: 0 0 8px 0; /* 下边距 */
-  padding: 8px 12px; /* 内边距 */
-  background-color: #f9f9f9; /* 浅灰色背景 */
-  border-radius: 4px; /* 圆角 */
+  font-style: italic;
+  color: #555;
+  margin: 0 0 8px 0;
+  padding: 8px 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
 }
 
-/* 评论部分样式 */
+
 .comment {
-  color: #333; /* 深灰色文字 */
-  margin: 0; /* 去掉默认外边距 */
-  padding: 8px 12px; /* 内边距 */
-  background-color: #f0f8ff; /* 浅蓝色背景 */
-  border-radius: 4px; /* 圆角 */
+  color: #333;
+  margin: 0;
+  padding: 8px 12px;
+  background-color: #f0f8ff;
+  border-radius: 4px;
 }
 
-
+@media (prefers-color-scheme: dark) {
+  .comments {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .head {
+    color: #ffffff;
+  }
+  .commentItem {
+    border: 1px solid #333;
+    background-color: #2a2a2a;
+  }
+  .content {
+    color: #cccccc;
+  }
+  .avatar {
+    color: #aaaaaa;
+  }
+  .nickName u {
+    color: #ffffff;
+  }
+  .error {
+    color: #ff4d4d;
+  }
+  .commentForm textarea {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+  .commentForm button {
+    background-color: #0056b3;
+    color: #ffffff;
+  }
+  .commentForm button:hover {
+    background-color: #003f7f;
+  }
+  .closeReply {
+    background-color: #333;
+    color: #ff4d4d;
+  }
+  .reply {
+    background-color: #2a2a2a;
+    color: #cccccc;
+  }
+  .quote {
+    color: #cccccc;
+    background-color: #333;
+  }
+  .comment {
+    color: #ffffff;
+    background-color: #2a2a2a;
+  }
+}
 </style>

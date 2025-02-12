@@ -67,4 +67,11 @@ button{
 .searchPage{
   margin-bottom: 100px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .head{
+    background-color: #242424;
+    color: whitesmoke;
+  }
+}
 </style>

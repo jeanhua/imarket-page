@@ -161,4 +161,46 @@ onActivated(() => {
   color: brown;
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 20px;
+    margin-top: 30px;
+  }
+
+  .section-title {
+    color: #c0c0c0;
+    border-bottom-color: #444;
+  }
+
+  .post-card {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  .post-title {
+    color: #c0c0c0;
+  }
+
+  .post-content {
+    color: #aaa;
+  }
+
+  .post-meta {
+    color: #777;
+  }
+
+  .score.sl {
+    color: white;
+    background-image: None;
+  }
+
+  .score.sf {
+    color: white;
+    background-image: None;
+  }
+}
 </style>

@@ -105,6 +105,7 @@ const switchForm = (type: "login" | "register" | "forget" | "_") => {
 
 <template>
   <div class="login-page">
+    <div class="expand"></div>
     <div class="head">iMarket {{ title }}</div>
     <div class="content">
       <!-- 登录表单 -->
@@ -201,7 +202,6 @@ const switchForm = (type: "login" | "register" | "forget" | "_") => {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  font-family: "custom-font", serif;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px #ccc;
 }
@@ -270,7 +270,6 @@ input {
   background-color: white;
   color: black;
   cursor: pointer;
-  font-family: "custom-font", serif;
 }
 
 .form-item button:hover {
@@ -288,20 +287,17 @@ input {
   text-decoration: none;
   color: black;
   font-size: 1.2rem;
-  font-family: "custom-font", serif;
 }
 
 .forget a {
   text-decoration: none;
   color: black;
   font-size: 1.2rem;
-  font-family: "custom-font", serif;
 }
 
 .back-to-login a {
   color: #666;
   font-size: 1.2rem;
-  font-family: "custom-font", serif;
 }
 
 .form-item input[type="email"] {
@@ -333,4 +329,60 @@ leave-active 定义离开过渡的结束状态
   opacity: 1;
 }
 
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .login-page {
+    background-color: #121212;
+  }
+  .expand{
+    width: 100vw;
+  }
+  .head {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px #333;
+  }
+
+  .form {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px #333;
+  }
+
+  input,
+  .form-item input[type="email"] {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+
+  .input {
+    border: 1px solid #555;
+  }
+
+  .form-item button {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #444;
+  }
+
+  .form-item button:hover {
+    background-color: #555;
+  }
+
+  .register a,
+  .forget a,
+  .back-to-login a {
+    color: #cccccc;
+  }
+
+  modal {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  body{
+    background-color: #1e1e1e;
+  }
+}
 </style>

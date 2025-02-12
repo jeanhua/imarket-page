@@ -31,7 +31,6 @@ const url = `/api/Search/Posts?keyWord=${encodeURIComponent(keyword.toString())}
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "custom-font",serif;
 }
 .homeBtn{
   position: absolute;
@@ -40,5 +39,16 @@ const url = `/api/Search/Posts?keyWord=${encodeURIComponent(keyword.toString())}
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .head {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  .searchDetail {
+    background-color: #121212;
+    color: #ffffff;
+  }
 }
 </style>

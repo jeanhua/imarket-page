@@ -276,4 +276,55 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .createPostPage {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+
+  .head {
+    color: #f9f9f9;
+  }
+
+  label {
+    color: #aaa;
+  }
+
+  input, textarea, select {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #555;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: #4CAF50;
+  }
+
+  .upload-btn {
+    background-color: #555;
+  }
+
+  .image-item img {
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+  }
+
+  .delete-btn {
+    background-color: rgba(255, 0, 0, 0.7);
+  }
+
+  .delete-btn:hover {
+    background-color: rgba(255, 0, 0, 0.9);
+  }
+
+  button {
+    background-image: linear-gradient(to right, #8a2387, #e94057, #f27121);
+  }
+
+  button:hover {
+    background-color: #5a9e6f;
+  }
+}
+
 </style>

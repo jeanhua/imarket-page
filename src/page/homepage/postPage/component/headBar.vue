@@ -67,7 +67,6 @@ onActivated(()=>{
   font-size: 1.5rem;
   font-weight: 600;
   color: #333333;
-  font-family: "custom-font",serif;
 }
 
 .categories {
@@ -106,11 +105,27 @@ onActivated(()=>{
   transform: translateY(0);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .headBar{
+    background-color: #242424;
+    border-bottom: #999999;
+  }
+  .title{
+    color: #999999;
+  }
+}
+
 </style>
 
 <script lang="ts">
 // 随机生成颜色函数
 const getRandomColor = () => {
+  let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if(isDarkMode){
+    return "#999999"
+  }
   const colors = [
     '#FF6B6B', // 红色
     '#4ECDC4', // 青色

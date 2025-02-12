@@ -49,5 +49,15 @@ const url = "/api/Post/GetFavorites?";
   left: 20px;
 }
 
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .head {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
 
+  .userPost {
+    background-color: #121212;
+  }
+}
 </style>

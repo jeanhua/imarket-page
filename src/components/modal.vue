@@ -46,4 +46,31 @@ defineExpose({
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .modal-overlay {
+    background-color: rgba(31, 31, 31, 0.75);
+  }
+
+  .modal-content {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+
+  .modal-content button {
+    background-color: #333;
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .modal-content button:hover {
+    background-color: #555;
+  }
+}
+
 </style>
