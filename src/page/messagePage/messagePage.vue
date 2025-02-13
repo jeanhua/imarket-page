@@ -88,7 +88,11 @@ const onScroll = () => {
 const toggleSelectAll = () => {
   if (selectAll.value) {
     // 全选，选中所有消息的ID
-    selectedMessages.value = [...message_received.value.map((msg) => msg.id), ...message_send.value.map((msg) => msg.id)];
+    if(show_received.value) {
+      selectedMessages.value = [...message_received.value.map((msg) => msg.id)];
+    }else{
+      selectedMessages.value = [...message_send.value.map((msg) => msg.id)];
+    }
   } else {
     selectedMessages.value = []; // 取消全选
   }
