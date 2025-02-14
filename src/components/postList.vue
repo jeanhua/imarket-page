@@ -71,7 +71,9 @@ onActivated(() => {
   })
   if(route.fullPath==='/post' || route.fullPath.match(/categories/) || route.fullPath.match(/search\//)
       || route.fullPath.match(/userPost\//) || route.fullPath.match(/favorite/)){
-    getPosts();
+    if(posts.value.length==0){
+      getPosts();
+    }
   }
   active = true;
 });
