@@ -30,20 +30,6 @@ imarket-page/
     │      └─postDetail/       # 帖子详情页相关的图标
     ├─components/              # 公共组件目录，可复用的 Vue 组件
     ├─page/                    # 页面组件目录，包含各个路由页面
-    │  ├─categoriesPage/       # 分类页面
-    │  │  └─component/         # 分类页面的子组件
-    │  ├─homepage/             # 首页
-    │  │  ├─aboutPage/         # 关于页面
-    │  │  │  └─component/      # 关于页面的子组件
-    │  │  ├─component/         # 首页的子组件
-    │  │  ├─postPage/          # 帖子列表页面
-    │  │  │  └─component/      # 帖子列表页面的子组件
-    │  │  └─searchPage/        # 搜索页面
-    │  │      └─component/     # 搜索页面的子组件
-    │  ├─loginPage/            # 登录页面
-    │  ├─postDetail/           # 帖子详情页面
-    │  │  └─component/         # 帖子详情页面的子组件
-    │  └─searchDetail/         # 搜索详情页面
     └─script/                  # 脚本目录，包含 TypeScript 配置和其他脚本文件
 ```
 ## 安装与运行

@@ -132,10 +132,10 @@ onBeforeUnmount(() => {
 
     <div class="contentList">
       <div class="head-bar">
-        <div :class="{ active: show_received }" @click="show_received=true;hasMore=true;">
+        <div :class="{ active: show_received }" @click="selectedMessages=show_received?selectedMessages:[];show_received=true;hasMore=true;">
           收件箱
         </div>
-        <div :class="{ active: !show_received }" @click="show_received=false;changeMenu();">
+        <div :class="{ active: !show_received }" @click="selectedMessages=show_received?[]:selectedMessages;show_received=false;changeMenu();">
           发件箱
         </div>
       </div>
@@ -144,7 +144,7 @@ onBeforeUnmount(() => {
       <div class="select-all" v-if="selectEnable">
         <input type="checkbox" v-model="selectAll" @change="toggleSelectAll" /> 全选
         <button @click="deleteSelectedMessages">删除选中消息</button>
-        <button @click="selectEnable=false">取消选择</button>
+        <button @click="selectEnable=false;selectedMessages=[]">取消选择</button>
       </div>
       <div v-else class="selectEnableBtn">
         <button @click="selectEnable=true">选择</button>
