@@ -257,6 +257,7 @@ const safeContent = (content: string): string => {
 
 .avatar img {
   width: 2.3rem;
+  height: 2.3rem;
   border-radius: 50%;
 }
 
