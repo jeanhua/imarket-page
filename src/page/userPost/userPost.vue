@@ -43,14 +43,10 @@ const msgModalRef = ref<InstanceType<typeof messageModal>|null>();
 
 <style scoped>
 .userPost{
-  position: absolute;
-  left: 0;
-  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
 }
 .head{
   display: flex;
