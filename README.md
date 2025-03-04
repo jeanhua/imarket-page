@@ -1,66 +1,175 @@
-![logo](./LOGO.png)
+  <center>
 
-# iMarket前端页面（适配iMarket校园集市系统）
-## 项目简介
-本项目是基于 Vue.js、Vite 和 TypeScript 开发的校园发帖平台前端页面。它旨在为 imarket 校园集市系统提供一个现代化、响应式、类型安全的用户交互界面。通过本平台，学生可以轻松发布和浏览帖子，参与校园生活的各个方面，包括二手交易、活动宣传、学术交流等。
-## 技术栈
-- **Vue.js**: 前端框架，用于构建用户界面。
-- **Vite**: 构建工具，提供快速的开发服务器和构建命令。
-- **TypeScript**: JavaScript 的超集，为代码提供类型系统和编译时类型检查。
-- **Vue Router**: Vue 的官方路由管理器，用于页面导航。
-## 功能模块
-- **用户认证**：支持用户登录、注册和注销。
-- **帖子发布**：用户可以创建包含文本和图片的帖子。
-- **帖子列表**：展示最新和热门帖子，支持分页和懒加载。
-- **帖子详情**：查看帖子详情，参与评论、点赞和收藏。
-- **搜索功能**：通过关键词搜索相关帖子。
-- **个人中心**：管理个人信息、帖子、评论和收藏。
-## 项目结构
-```
-imarket-page/
-├─dist/                        # 打包输出目录，包含编译后的静态文件
-│  └─assets/                   # 编译后的静态资源，如图片、样式表等
-├─public/                      # 公共文件，不会被 Vite 处理，直接复制到输出目录
-│  └─index.html                # 入口 HTML 文件
-└─src/                         # 源代码目录
-    ├─assets/                  # 静态资源目录
-    │  ├─font/                 # 字体文件
-    │  └─icon/                 # 图标资源
-    │      ├─home/             # 首页相关的图标
-    │      └─postDetail/       # 帖子详情页相关的图标
-    ├─components/              # 公共组件目录，可复用的 Vue 组件
-    ├─page/                    # 页面组件目录，包含各个路由页面
-    └─script/                  # 脚本目录，包含 TypeScript 配置和其他脚本文件
-```
-## 安装与运行
-1. 克隆项目到本地：
-```bash
-git clone https://github.com/jeanhua/imarket-page.git
-```
-2. 进入项目目录，安装依赖：
-```bash
-cd imarket-page
-npm install
-```
-3. 启动开发服务器：
-```bash
-npm run dev
-```
-4. 访问项目：
-在浏览器中输入：http://localhost:3000
-## 打包与部署
-```bash
-npm run build
-```
-打包后的文件将位于 `dist/` 目录，可用于生产环境部署。
-## 注意事项
-- 确保后端接口与本项目前端代码兼容。
-- 根据实际需求调整组件样式。
-- 替换项目中的静态资源路径为实际资源。
-## 许可证
-本项目采用 MIT 许可证，请遵守相关协议。
-## 联系方式
-如有任何问题或建议，请通过以下方式联系：
-- 邮箱：jeanhua_official@outlook.com
-- GitHub：https://github.com/jeanhua/imarket-page
-感谢您的使用和支持！
+  ![logo](./LOGO.png)
+
+  # iMarket 校园集市前端  
+
+  <div align="center">
+    <img src="https://img.shields.io/github/created-at/jeanhua/imarket-page?color=00CC99&style=flat-square" alt="创建时间">
+    <img src="https://img.shields.io/badge/Vue-3.3.4-4FC08D?logo=vue.js&logoColor=white&style=flat-square" alt="Vue版本">
+    <img src="https://img.shields.io/badge/Vite-4.4.9-646CFF?logo=vite&logoColor=white&style=flat-square" alt="Vite">
+    <img src="https://img.shields.io/github/license/jeanhua/imarket-page?color=blue&style=flat-square" alt="许可证">
+  </div>
+
+  </center>
+
+---
+
+  ## 🌟 项目亮点
+
+  🎨 **响应式设计** · ⚡ **毫秒级热更新** · 🔒 **JWT自动续期**  
+  📱 **PWA支持** · 📊 **可视化数据统计**
+
+<div align="center">
+  <a href="https://imarket.jeanhua.cn/"><img src="https://img.shields.io/badge/🚀_在线体验-00B4D8?style=for-the-badge)](https://imarket.jeanhua.cn" alt="在线体验"></a>
+  <img src="https://img.shields.io/badge/💻_后端仓库-6E5494?style=for-the-badge)](https://github.com/jeanhua/imarket-backend" alt="后端仓库">
+</div>
+
+---
+
+  ## 🛠️ 技术全景图
+
+  <table>
+    <tr>
+      <td width="33%">
+        <div align="center">
+          <img src="https://vuejs.org/logo.svg" width="60" alt="Vue3">
+          <br><strong>Vue 3</strong>
+          <br>组合式API + 响应式系统
+        </div>
+      </td>
+      <td width="33%">
+        <div align="center">
+          <img src="https://vitejs.dev/logo.svg" width="60" alt="Vite">
+          <br><strong>Vite 4</strong>
+          <br>极速开发体验
+        </div>
+      </td>
+      <td width="33%">
+        <div align="center">
+          <img src="https://www.typescriptlang.org/icons/icon-96x96.png" width="60" alt="TypeScript">
+          <br><strong>TypeScript 5</strong>
+          <br>强类型代码规范
+        </div>
+      </td>
+    </tr>
+  </table>
+
+---
+
+  ## 🎯 核心功能体系
+
+  <details>
+  <summary><strong>✨ 交互体验</strong></summary>
+  • **内容创作** ✍️  
+    📝 安全的界面显示 · 🖼️ 多图上传
+
+  • **社交互动** 💬  
+    ❤️ 点赞动画 · ⭐ 收藏管理 · 🔄 分享到社交平台 · 🔔 消息通知 
+
+  </details>
+
+---
+
+  ## 🚀 快速启动指南
+
+  ```bash
+  # 克隆仓库
+  git clone https://github.com/jeanhua/imarket-page.git
+  
+  # 安装依赖
+  npm install
+  
+  # 启动开发模式
+  npm run dev
+  ```
+
+---
+
+  ## 🗂️ 项目结构解析
+
+  ```tree
+  src/
+  ├── assets/                  # 静态资源库
+  │   ├── font/                # 字体文件（支持woff2格式）
+  │   └── icon/                # SVG图标系统
+  ├── components/              # 通用组件库
+  │   ├── Editor/              # 富文本编辑器组件
+  │   └── DataVisual/          # 数据可视化组件
+  ├── page/                    # 路由页面组件
+  │   ├── Post/                # 帖子功能模块
+  │   └── User/                # 用户中心模块
+  └── script/                  # 工程化脚本
+      ├── types/               # TS类型定义
+      └── utils/               # 通用工具库
+  ```
+
+---
+
+  ## 📦 生产部署方案
+
+  ```bash
+  # 构建生产版本
+  npm run build
+  
+  # 部署到Nginx服务器
+  server {
+      listen 80;
+      server_name imarket.jeanhua.cn;
+      
+      location / {
+          root   /var/www/imarket;
+          index  index.html;
+          try_files $uri $uri/ /index.html;
+      }
+  }
+  ```
+
+---
+
+  ## 🤝 贡献者公约
+
+  我们欢迎以下类型的贡献：  
+  🔍 **BUG排查** · 🎨 **UI优化** · 📚 **文档完善**  
+  🌍 **国际化** · 🧪 **单元测试** · 🚀 **性能优化**
+
+  **协作流程**：
+  1. 创建特性分支 `git checkout -b feature/awesome-feature`
+  2. 提交原子化commit `git commit -m 'feat: 新增炫酷功能'`
+  3. 推送至远程仓库 `git push origin feature/awesome-feature`
+  4. 创建Pull Request并关联issue
+
+---
+
+  ## 📮 联系我们
+
+  <table>
+    <tr>
+      <td width="50%">
+        <div align="center">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="30">
+          <br>
+          <strong>技术支持</strong>
+          <br>
+          <a href="mailto:jeanhua_official@outlook.com">jeanhua_official@outlook.com</a>
+        </div>
+      </td>
+      <td width="50%">
+        <div align="center">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="30">
+          <br>
+          <strong>项目看板</strong>
+          <br>
+          <a href="https://github.com/jeanhua/imarket-page/pulse">GitHub Insights</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+
+---
+
+  <div align="center">
+    📜 基于 MIT 协议开源 · Copyright © Since 2024 JeanHua
+  </div>
+
