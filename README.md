@@ -170,6 +170,5 @@
 ---
 
   <div align="center">
-    📜 基于 MIT 协议开源 · Copyright © Since 2024 JeanHua
+    📜 基于 MIT 协议开源 · Copyright © Since 2025 JeanHua
   </div>
-
