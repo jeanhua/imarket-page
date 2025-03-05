@@ -6,10 +6,11 @@
 
   <div align="center">
     <img src="https://img.shields.io/github/created-at/jeanhua/imarket-page?color=00CC99&style=flat-square" alt="创建时间">
-    <img src="https://img.shields.io/badge/Vue-3.3.4-4FC08D?logo=vue.js&logoColor=white&style=flat-square" alt="Vue版本">
-    <img src="https://img.shields.io/badge/Vite-4.4.9-646CFF?logo=vite&logoColor=white&style=flat-square" alt="Vite">
+    <img src="https://img.shields.io/badge/Vue-3.5.13-4FC08D?logo=vue.js&logoColor=white&style=flat-square" alt="Vue版本">
+    <img src="https://img.shields.io/badge/Vite-6.0.5-646CFF?logo=vite&logoColor=white&style=flat-square" alt="Vite">
     <img src="https://img.shields.io/github/license/jeanhua/imarket-page?color=blue&style=flat-square" alt="许可证">
   </div>
+
 
   </center>
 
@@ -41,7 +42,7 @@
       <td width="33%">
         <div align="center">
           <img src="https://vitejs.dev/logo.svg" width="60" alt="Vite">
-          <br><strong>Vite 4</strong>
+          <br><strong>Vite 6</strong>
           <br>极速开发体验
         </div>
       </td>
@@ -54,6 +55,7 @@
       </td>
     </tr>
   </table>
+
 
 ---
 
@@ -91,16 +93,10 @@
   ```tree
   src/
   ├── assets/                  # 静态资源库
-  │   ├── font/                # 字体文件（支持woff2格式）
-  │   └── icon/                # SVG图标系统
-  ├── components/              # 通用组件库
-  │   ├── Editor/              # 富文本编辑器组件
-  │   └── DataVisual/          # 数据可视化组件
-  ├── page/                    # 路由页面组件
-  │   ├── Post/                # 帖子功能模块
-  │   └── User/                # 用户中心模块
-  └── script/                  # 工程化脚本
-      ├── types/               # TS类型定义
+  │   └── icon/                # SVG图标
+  ├── components/              # 通用组件
+  ├── page/                    # 页面
+  └── script/                  # 脚本
       └── utils/               # 通用工具库
   ```
 
