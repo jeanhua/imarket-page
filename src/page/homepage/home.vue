@@ -4,7 +4,7 @@ import navigationBar from './component/navigationBar.vue';
 <template>
   <div>
     <router-view v-slot="{ Component }">
-      <transition name="fade-transform" mode="out-in">
+      <transition name="el-fade-in-linear" mode="out-in">
         <keep-alive>
           <component :is="Component" />
         </keep-alive>
